@@ -59,6 +59,27 @@ O projeto segue uma arquitetura organizada com as seguintes pastas:
 - **Lombok**: Automatiza a geração de código boilerplate (getters, setters, construtores).
 - **Spring DevTools**: Facilita o desenvolvimento com reinício automático da aplicação.
 
+### Configuração do Banco de Dados H2
+
+Adicione as seguintes configurações ao arquivo `src/main/resources/application.properties`:
+
+```properties
+spring.application.name=space-management-system
+
+spring.datasource.url=jdbc:h2:mem:testdb
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=
+
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2-console
+
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+
+
 ### Passos para Executar
 1. Clone o repositório:
    ```bash
