@@ -1,4 +1,4 @@
-package ifto.projeto.space_management_system.model;
+package ifto.projeto.space_management_system.model.entidades;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
