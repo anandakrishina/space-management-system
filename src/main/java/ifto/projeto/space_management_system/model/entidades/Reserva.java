@@ -1,7 +1,9 @@
 package ifto.projeto.space_management_system.model.entidades;
 
 
-import ifto.projeto.space_management_system.model.enums.Situacao;
+import ifto.projeto.space_management_system.model.enums.SituacaoReserva;
+import ifto.projeto.space_management_system.model.enums.TipoEvento;
+import ifto.projeto.space_management_system.model.enums.Turno;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
