@@ -64,5 +64,4 @@ public class EspacoFisico {
     protected void onUpdate() {
         this.dataUltimaAtualizacao = new Date();
     }
-
 }
