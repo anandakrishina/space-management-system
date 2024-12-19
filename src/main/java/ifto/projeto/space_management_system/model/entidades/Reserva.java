@@ -8,15 +8,17 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Date;
 
 @Entity
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
 public class Reserva {
@@ -34,14 +36,11 @@ public class Reserva {
     @NotBlank (message = "Digite o nome do responsável pela reserva")
     private String responsavel;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dataCadastroReserva;
+    private LocalDateTime dataCadastroReserva;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dataUltimaAtualizacaoReserva;
+    private LocalDateTime dataUltimaAtualizacaoReserva;
 
-    @Temporal(TemporalType.DATE)
-    private Date periodoReserva;
+    private LocalDate periodoReserva;
 
     @Enumerated(EnumType.STRING)
     @NotNull (message = "Defina o turno do evento")
@@ -62,13 +61,12 @@ public class Reserva {
 
     @PrePersist
     protected void onCreate() {
-        this.dataCadastroReserva = new Date();
-        this.dataUltimaAtualizacaoReserva = new Date();
+        this.dataCadastroReserva = LocalDateTime.now();
+        this.dataUltimaAtualizacaoReserva = LocalDateTime.now();
     }
 
     @PreUpdate
     protected void onUpdate() {
-        this.dataUltimaAtualizacaoReserva = new Date();
+        this.dataUltimaAtualizacaoReserva = LocalDateTime.now();
     }
-
 }
