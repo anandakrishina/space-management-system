@@ -59,6 +59,18 @@ public class Reserva {
     @NotNull (message = "Defina a situação da reserva")
     private SituacaoReserva situacao;
 
+    public Reserva(RequestReservaDTO requestReservaDTO) {
+        this.nomeEvento = requestReservaDTO.nomeEvento();
+        this.tipoEvento = requestReservaDTO.tipoEvento();
+        this.responsavel = requestReservaDTO.responsavel();
+        this.periodoReserva = requestReservaDTO.periodoReserva();
+        this.turno = requestReservaDTO.turno();
+        this.horarioInicio = requestReservaDTO.horarioInicio();
+        this.horarioTermino = requestReservaDTO.horarioTermino();
+        this.totalParticipantes = requestReservaDTO.totalParticipantes();
+        this.situacao = requestReservaDTO.situacao();
+    }
+
     @PrePersist
     protected void onCreate() {
         this.dataCadastroReserva = LocalDateTime.now();
@@ -69,4 +81,6 @@ public class Reserva {
     protected void onUpdate() {
         this.dataUltimaAtualizacaoReserva = LocalDateTime.now();
     }
+
+
 }
